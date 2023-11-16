@@ -44,7 +44,7 @@ const config: DocsThemeConfig = {
     link: "https://discord.com",
   },
   // main: ({ children }) => {
-  //   return <div className="bg-fuchsia-300">{children}</div>;
+  //   return <div className={GeistSans.className}>{children}</div>;
   // },
   // useNextSeoProps() {
   //   const { asPath } = useRouter();
