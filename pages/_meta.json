@@ -1,9 +1,19 @@
 {
-  "index": "Introduction",
+  "index": {
+    "type": "page",
+    "title": "Le-AI",
+    "theme": {
+      "layout": "raw"
+    },
+    "display": "hidden"
+  },
   "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
+  "le-ai": {
+    "title": "Le-AI",
+    "type": "page"
+  },
+  "le-ai-api": {
+    "title": "Le-AI API",
     "type": "page"
   },
   "contact": {

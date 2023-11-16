@@ -1,7 +1,7 @@
 {
-  "name": "nextra-docs-template",
+  "name": "le-ai-docs",
   "version": "0.0.1",
-  "description": "Nextra docs template",
+  "description": "Le-AI docs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,23 +9,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
+    "url": "git+https://github.com/LTopx/Le-AI-Docs-new.git"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "LTopx",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://github.com/LTopx/Le-AI-Docs-new/issues"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "homepage": "https://github.com/LTopx/Le-AI-Docs-new/blob/main/README.md",
   "dependencies": {
-    "next": "^13.0.6",
-    "nextra": "latest",
-    "nextra-theme-docs": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "14.0.2",
+    "nextra": "2.13.2",
+    "nextra-theme-docs": "2.13.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "18.11.10",
-    "typescript": "^4.9.3"
+    "@types/node": "20.9.0",
+    "@types/react": "18.2.37",
+    "autoprefixer": "10.4.16",
+    "postcss": "8.4.31",
+    "tailwindcss": "3.3.5",
+    "typescript": "5.2.2"
   }
 }
