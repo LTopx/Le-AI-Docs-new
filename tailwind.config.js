@@ -1,4 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+
+const {
+  iconsPlugin,
+  getIconCollections,
+} = require("@egoist/tailwindcss-icons");
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -55,6 +61,11 @@ module.exports = {
       backgroundImage: {
         logo: "linear-gradient(90deg,#41BDF8,#59A5F0,#788ADE,#936DC2,#A34E9D)",
         hero: "linear-gradient(to top,#fafafa 0,hsla(0,0%,100%,0) 100%),linear-gradient(to right,rgb(var(--gradient-from,192.5 192.5 192.5)/.08) 0,rgb(var(--gradient-to,192.5 192.5 192.5)/.08) 100%)",
+        heroDark:
+          "linear-gradient(to top,#000 0,hsla(0,0%,100%,0) 100%),linear-gradient(90deg,rgb(var(--gradient-from,85 85 85)/.2) 0,rgb(var(--gradient-to,85 85 85)/.2) 100%)",
+        download1: "linear-gradient(165deg,#00dfd8,#007cf0)",
+        download2: "linear-gradient(165deg,#ff0080,#7928ca)",
+        download3: "linear-gradient(165deg,#ff4d4d,#f9cb28)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -75,13 +86,33 @@ module.exports = {
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0 50%" },
         },
+        download1: {
+          "0%, 16.667%, 100%": { opacity: 1 },
+          "33%, 83.333%": { opacity: 0 },
+        },
+        download2: {
+          "0%, 16.667%, 66.667%, 100%": { opacity: 0 },
+          "33.333%, 50%": { opacity: 1 },
+        },
+        download3: {
+          "0%, 50%, 100%": { opacity: 0 },
+          "66.667%, 83.333%": { opacity: 1 },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         flow: "flow 6s linear infinite",
+        download1: "download1 8s infinite",
+        download2: "download2 8s infinite",
+        download3: "download3 8s infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    iconsPlugin({
+      collections: getIconCollections(["mdi", "mingcute", "simple-icons"]),
+    }),
+  ],
 };
