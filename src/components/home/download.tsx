@@ -1,10 +1,16 @@
 import React from "react";
+import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 type Item = {
   platform: string;
   icon: string;
+};
+
+const FADE_UP_ANIMATION_VARIANTS: Variants = {
+  hidden: { opacity: 0.001, y: 10 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.2 } },
 };
 
 export default function Download() {
@@ -30,7 +36,13 @@ export default function Download() {
   };
 
   return (
-    <div className="hidden lg:block">
+    <motion.div
+      initial="hidden"
+      animate="show"
+      viewport={{ once: true }}
+      variants={FADE_UP_ANIMATION_VARIANTS}
+      className="hidden lg:block"
+    >
       <div className="flex flex-col md:flex-row justify-center items-center gap-4">
         {lists.map((item, index) => (
           <div
@@ -85,7 +97,7 @@ export default function Download() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-7">
         <div
           className={cn(
             "overflow-hidden h-0 transition-all duration-500 will-change-[height] flex gap-4",
@@ -110,6 +122,6 @@ export default function Download() {
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
