@@ -60,7 +60,7 @@ export default function Home() {
   const background = useMotionTemplate`radial-gradient(320px circle at ${mouseX}px ${mouseY}px, var(--spotlight-color) 0%, transparent 85%)`;
 
   return (
-    <div className="bg-zinc-50 dark:bg-black relative [--spotlight-color:rgba(248,154,63,0.15)]">
+    <div className="bg-zinc-50 dark:bg-black relative [--spotlight-color:rgba(248,154,63,0.15)] [--action-color:rgba(68,68,68,0.3)] dark:[--action-color:rgba(153,153,153,0.3)]">
       <div className="pointer-events-none fixed inset-0 select-none bg-[url('/grid-black.svg')] bg-top bg-repeat dark:bg-[url('/grid.svg')] [mask-image:radial-gradient(white,transparent_95%)]"></div>
       <div className="bg-hero dark:bg-heroDark pt-24 mb-6">
         <div className="flex flex-col items-center">

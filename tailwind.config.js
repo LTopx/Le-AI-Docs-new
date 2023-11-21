@@ -66,6 +66,10 @@ module.exports = {
         download1: "linear-gradient(165deg,#00dfd8,#007cf0)",
         download2: "linear-gradient(165deg,#ff0080,#7928ca)",
         download3: "linear-gradient(165deg,#ff4d4d,#f9cb28)",
+        actionBtn:
+          "linear-gradient(0deg,rgba(0,0,0,0.05),rgba(0,0,0,0.05)),radial-gradient(50% 50% at 50% 100%,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%)",
+        actionBtnDark:
+          "linear-gradient(0deg,rgba(255,255,255,0.05),rgba(255,255,255,0.05)),radial-gradient(50% 50% at 50% 100%,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%)",
       },
       borderRadius: {
         lg: "var(--radius)",
