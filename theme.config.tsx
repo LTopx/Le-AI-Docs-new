@@ -44,9 +44,6 @@ const config: DocsThemeConfig = {
   chat: {
     link: "https://discord.com",
   },
-  // main: ({ children }) => {
-  //   return <div className={GeistSans.className}>{children}</div>;
-  // },
   // useNextSeoProps() {
   //   const { asPath } = useRouter();
   //   if (asPath !== "/") {
@@ -56,7 +53,6 @@ const config: DocsThemeConfig = {
   //   }
   // },
   footer: {
-    // text: "Nextra Docs Template",
     component: <Footer />,
   },
 };

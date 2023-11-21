@@ -1,25 +1,39 @@
 {
   "index": {
+    "title": "Home",
     "type": "page",
-    "title": "Le-AI",
     "theme": {
       "layout": "raw"
     },
     "display": "hidden"
   },
-  "another": "Another Page",
-  "le-ai": {
+  "client": {
     "title": "Le-AI",
     "type": "page"
   },
-  "le-ai-api": {
-    "title": "Le-AI API",
+  "server": {
+    "title": "Le-AI-API",
     "type": "page"
   },
   "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
+    "title": "Contact",
+    "type": "menu",
+    "items": {
+      "x": {
+        "title": "X",
+        "href": "https://twitter.com/peekbomb",
+        "newWindow": true
+      },
+      "github": {
+        "title": "Github",
+        "href": "https://github.com/Peek-A-Booo",
+        "newWindow": true
+      },
+      "blog": {
+        "title": "Blog",
+        "href": "https://goethan.cc",
+        "newWindow": true
+      }
+    }
   }
 }
