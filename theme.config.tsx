@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import Footer from "@/components/footer";
 
 const logo = (
   <div className="flex h-14 text-2xl gap-2 items-center logo">
@@ -55,7 +56,8 @@ const config: DocsThemeConfig = {
   //   }
   // },
   footer: {
-    text: "Nextra Docs Template",
+    // text: "Nextra Docs Template",
+    component: <Footer />,
   },
 };
 
