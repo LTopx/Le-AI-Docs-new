@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button } from "components/ui/button";
 import { cn } from "@/lib/utils";
 import { getVariants, getSlideVariants } from "@/lib/variants";
 import Download from "./download";
@@ -10,7 +10,7 @@ import ApiProxy from "./apiProxy";
 import FAQ from "./faq";
 import Pricing from "./pricing";
 import Divider from "../divider";
-import Pkg from "../../../package.json";
+import Pkg from "../../package.json";
 
 export function Home() {
   const mouseX = useMotionValue(0);
