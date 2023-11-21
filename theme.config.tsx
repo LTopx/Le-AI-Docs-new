@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import Language from "@/components/language";
 import Footer from "@/components/footer";
 
 const logo = (
@@ -52,9 +53,16 @@ const config: DocsThemeConfig = {
   //     };
   //   }
   // },
+  navbar: {
+    extraContent: Language,
+  },
   footer: {
     component: <Footer />,
   },
+  i18n: [
+    { locale: "en", text: "English" },
+    { locale: "zh", text: "中文" },
+  ],
 };
 
 export default config;
