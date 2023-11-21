@@ -1,0 +1,10 @@
+import Main from "@/components/main";
+import "../style.css";
+
+export default function App({ Component, pageProps }) {
+  return (
+    <Main>
+      <Component {...pageProps} />
+    </Main>
+  );
+}
