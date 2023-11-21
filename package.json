@@ -1,6 +1,6 @@
 {
   "name": "le-ai-docs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Le-AI docs",
   "scripts": {
     "dev": "next dev",

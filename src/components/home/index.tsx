@@ -13,6 +13,8 @@ import Features from "./features";
 import ApiProxy from "./apiProxy";
 import FAQ from "./faq";
 import Pricing from "./pricing";
+import Divider from "../divider";
+import { version } from "../../../package.json";
 
 const FADE_UP_ANIMATION_VARIANTS: Variants = {
   hidden: { opacity: 0.001, y: 20 },
@@ -73,6 +75,20 @@ export default function Home() {
           >
             AI Assitant Hub
           </motion.h1>
+          <motion.h1
+            initial="hidden"
+            animate="show"
+            viewport={{ once: true }}
+            variants={FADE_UP_ANIMATION_VARIANTS}
+            className="font-extrabold tracking-tight scroll-m-20 text-4xl lg:text-5xl text-center mt-4 flex gap-3"
+          >
+            <div>With</div>
+            <div className="cursor-pointer flex font-extrabold text-transparent items-center select-none">
+              <span className="bg-clip-text bg-logo bg-[size:400%] animate-flow">
+                Le-AI
+              </span>
+            </div>
+          </motion.h1>
           <motion.p
             initial="hidden"
             animate="show"
@@ -111,7 +127,7 @@ export default function Home() {
             )}
             variant="outline"
           >
-            Download <b>v1.0.0</b>
+            Download <b>v{version}</b>
             <span className="i-mdi-download w-5 h-5 lg:w-6 lg:h-6 group-hover:animate-bounce" />
           </Button>
         </motion.div>
@@ -131,6 +147,7 @@ export default function Home() {
             alt="snapshot-dark"
             width={2560}
             height={1362}
+            priority
           />
           <Image
             className="rounded-md max-w-[calc(100vw-2rem)] w-full dark:block hidden"
@@ -140,17 +157,7 @@ export default function Home() {
             height={1362}
           />
         </motion.div>
-        <motion.div
-          initial="hidden"
-          animate="show"
-          viewport={{ once: true }}
-          variants={FADE_UP_ANIMATION_VARIANTS_4}
-          className="my-16 flex items-center gap-2"
-        >
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-          <span className="i-simple-icons-openai text-2xl text-[#a8a8a8] dark:text-[#878787]" />
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-        </motion.div>
+        <Divider />
         <div className="flex flex-col items-center">
           <motion.h1
             initial="hidden"
@@ -312,53 +319,13 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={FADE_UP_ANIMATION_VARIANTS_3}
-          className="my-16 flex items-center gap-2"
-        >
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-          <span className="i-simple-icons-openai text-2xl text-[#a8a8a8] dark:text-[#878787]" />
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-        </motion.div>
+        <Divider />
         <Features />
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={FADE_UP_ANIMATION_VARIANTS_3}
-          className="my-16 flex items-center gap-2"
-        >
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-          <span className="i-simple-icons-openai text-2xl text-[#a8a8a8] dark:text-[#878787]" />
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-        </motion.div>
+        <Divider />
         <ApiProxy />
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={FADE_UP_ANIMATION_VARIANTS_3}
-          className="my-16 flex items-center gap-2"
-        >
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-          <span className="i-simple-icons-openai text-2xl text-[#a8a8a8] dark:text-[#878787]" />
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-        </motion.div>
+        <Divider />
         <Pricing />
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={FADE_UP_ANIMATION_VARIANTS_3}
-          className="my-16 flex items-center gap-2"
-        >
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-          <span className="i-simple-icons-openai text-2xl text-[#a8a8a8] dark:text-[#878787]" />
-          <div className="flex-1 h-[1px] bg-[#ebeaeb] dark:bg-[#1e1e1e]" />
-        </motion.div>
+        <Divider />
         <FAQ />
       </div>
     </div>

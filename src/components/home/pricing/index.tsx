@@ -12,7 +12,7 @@ const FADE_UP_ANIMATION_VARIANTS: Variants = {
 
 export default function Pricing() {
   return (
-    <div className="flex flex-col items-center pb-8 lg:pb-16">
+    <div className="flex flex-col items-center">
       <motion.h1
         initial="hidden"
         whileInView="show"
