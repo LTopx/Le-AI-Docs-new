@@ -12,7 +12,7 @@ import Pricing from "./pricing";
 import Divider from "../divider";
 import Pkg from "../../package.json";
 
-export function Home() {
+export default function Home() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const handleMouseMove = React.useCallback(
