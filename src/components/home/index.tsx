@@ -161,9 +161,16 @@ export default function Home() {
           >
             <span>Based on</span>
             <Image
-              className="mt-1 lg:mt-3"
+              className="mt-1 lg:mt-3 dark:hidden"
               src="/openai.svg"
               alt="openai"
+              width={118}
+              height={32}
+            />
+            <Image
+              className="mt-1 lg:mt-3 hidden dark:block"
+              src="/openai-dark.svg"
+              alt="openai-dark"
               width={118}
               height={32}
             />

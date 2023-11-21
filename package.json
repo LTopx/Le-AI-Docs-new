@@ -36,12 +36,12 @@
   "devDependencies": {
     "@iconify-json/mdi": "1.1.55",
     "@iconify-json/mingcute": "1.1.11",
-    "@iconify-json/simple-icons": "1.1.78",
-    "@types/node": "20.9.1",
-    "@types/react": "18.2.37",
+    "@iconify-json/simple-icons": "1.1.79",
+    "@types/node": "20.9.3",
+    "@types/react": "18.2.38",
     "autoprefixer": "10.4.16",
     "postcss": "8.4.31",
     "tailwindcss": "3.3.5",
-    "typescript": "5.2.2"
+    "typescript": "5.3.2"
   }
 }

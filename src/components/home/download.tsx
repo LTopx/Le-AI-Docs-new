@@ -107,14 +107,22 @@ export default function Download() {
           )}
         >
           <Button
-            className="rounded-full h-10 px-4 gap-2 text-base group hover:bg-[rgb(242,242,242)] text-[rgb(23,23,23)]"
+            className={cn(
+              "rounded-full h-10 px-4 gap-2 text-base group",
+              "hover:bg-[hsla(0,0%,95%,1)] text-[hsla(0,0%,9%,1)] shadow-[rgba(0,0,0,0.08)_0px_0px_0px_1px,rgba(0,0,0,0.04)_0px_2px_2px_0px]",
+              "dark:bg-[#0a0a0a] dark:hover:bg-[#1e1e1e] dark:text-[hsla(0,0%,93%,1)] dark:shadow-[rgba(255,255,255,0.145)_0px_0px_0px_1px,rgba(0,0,0,0.16)_0px_1px_2px_0px]"
+            )}
             variant="outline"
           >
             <span className="w-6 h-6 i-mingcute-appstore-fill" />
             Intel Chip
           </Button>
           <Button
-            className="rounded-full h-10 px-4 gap-2 text-base group hover:bg-[rgb(242,242,242)] text-[rgb(23,23,23)]"
+            className={cn(
+              "rounded-full h-10 px-4 gap-2 text-base group",
+              "hover:bg-[hsla(0,0%,95%,1)] text-[hsla(0,0%,9%,1)] shadow-[rgba(0,0,0,0.08)_0px_0px_0px_1px,rgba(0,0,0,0.04)_0px_2px_2px_0px]",
+              "dark:bg-[#0a0a0a] dark:hover:bg-[#1e1e1e] dark:text-[hsla(0,0%,93%,1)] dark:shadow-[rgba(255,255,255,0.145)_0px_0px_0px_1px,rgba(0,0,0,0.16)_0px_1px_2px_0px]"
+            )}
             variant="outline"
           >
             <span className="w-6 h-6 i-mingcute-appstore-fill" />
