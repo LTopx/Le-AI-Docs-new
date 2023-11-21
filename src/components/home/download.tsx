@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { getVariants } from "@/lib/variants";
 import { Button } from "@/components/ui/button";
 
 type Item = {
@@ -40,7 +41,7 @@ export default function Download() {
       initial="hidden"
       animate="show"
       viewport={{ once: true }}
-      variants={FADE_UP_ANIMATION_VARIANTS}
+      variants={getVariants({ delay: 0.9 })}
       className="hidden lg:block"
     >
       <div className="flex flex-col md:flex-row justify-center items-center gap-4">

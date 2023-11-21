@@ -1,51 +1,16 @@
 import React from "react";
 import Image from "next/image";
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  type Variants,
-} from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { getVariants, getSlideVariants } from "@/lib/variants";
 import Download from "./download";
 import Features from "./features";
 import ApiProxy from "./apiProxy";
 import FAQ from "./faq";
 import Pricing from "./pricing";
 import Divider from "../divider";
-import { version } from "../../../package.json";
-
-const FADE_UP_ANIMATION_VARIANTS: Variants = {
-  hidden: { opacity: 0.001, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring" } },
-};
-
-const FADE_UP_ANIMATION_VARIANTS_1: Variants = {
-  hidden: { opacity: 0.001, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.1 } },
-};
-
-const FADE_UP_ANIMATION_VARIANTS_2: Variants = {
-  hidden: { opacity: 0.001, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.15 } },
-};
-
-const FADE_UP_ANIMATION_VARIANTS_3: Variants = {
-  hidden: { opacity: 0.001, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.2 } },
-};
-
-const FADE_UP_ANIMATION_VARIANTS_4: Variants = {
-  hidden: { opacity: 0.001, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.25 } },
-};
-
-const MULTIDIRECTION_SLIDE_VARIANTS: Variants = {
-  hidden: { opacity: 0, x: "-5vw" },
-  visible: { opacity: 1, x: 0, transition: { type: "tween", delay: 0.2 } },
-  right: { opacity: 0, x: "5vw" },
-};
+import Pkg from "../../../package.json";
 
 export default function Home() {
   const mouseX = useMotionValue(0);
@@ -62,7 +27,7 @@ export default function Home() {
   const background = useMotionTemplate`radial-gradient(320px circle at ${mouseX}px ${mouseY}px, var(--spotlight-color) 0%, transparent 85%)`;
 
   return (
-    <div className="bg-zinc-50 dark:bg-black relative [--spotlight-color:rgba(248,154,63,0.15)] [--action-color:rgba(68,68,68,0.3)] dark:[--action-color:rgba(153,153,153,0.3)]">
+    <div className="bg-zinc-50 dark:bg-black relative [--spotlight-color:rgba(14,165,233,0.15)] [--action-color:rgba(68,68,68,0.3)] dark:[--action-color:rgba(153,153,153,0.3)]">
       <div className="pointer-events-none fixed inset-0 select-none bg-[url('/grid-black.svg')] bg-top bg-repeat dark:bg-[url('/grid.svg')] [mask-image:radial-gradient(white,transparent_95%)]"></div>
       <div className="bg-hero dark:bg-heroDark pt-24 mb-6">
         <div className="flex flex-col items-center">
@@ -70,7 +35,7 @@ export default function Home() {
             initial="hidden"
             animate="show"
             viewport={{ once: true }}
-            variants={FADE_UP_ANIMATION_VARIANTS}
+            variants={getVariants()}
             className="font-extrabold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center"
           >
             AI Assitant Hub
@@ -79,7 +44,7 @@ export default function Home() {
             initial="hidden"
             animate="show"
             viewport={{ once: true }}
-            variants={FADE_UP_ANIMATION_VARIANTS}
+            variants={getVariants()}
             className="font-extrabold tracking-tight scroll-m-20 text-4xl lg:text-5xl text-center mt-4 flex gap-3"
           >
             <div>With</div>
@@ -93,7 +58,7 @@ export default function Home() {
             initial="hidden"
             animate="show"
             viewport={{ once: true }}
-            variants={FADE_UP_ANIMATION_VARIANTS_1}
+            variants={getVariants({ delay: 0.3 })}
             className="mt-8 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
           >
             Le-AI is an open-source LLM conversation assistant designed to help
@@ -106,7 +71,7 @@ export default function Home() {
           initial="hidden"
           animate="show"
           viewport={{ once: true }}
-          variants={FADE_UP_ANIMATION_VARIANTS_2}
+          variants={getVariants({ delay: 0.6 })}
           className="flex justify-center gap-6 my-6 h-24 items-center"
         >
           <Button
@@ -127,20 +92,14 @@ export default function Home() {
             )}
             variant="outline"
           >
-            Download <b>v{version}</b>
+            Download <b>v{Pkg.version}</b>
             <span className="i-mdi-download w-5 h-5 lg:w-6 lg:h-6 group-hover:animate-bounce" />
           </Button>
         </motion.div>
         <Download />
       </div>
-      <div className="mx-auto max-w-6xl px-4 text-[hsla(0,0%,9%,1)] dark:text-[hsla(0,0%,95%,1)]">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          viewport={{ once: true }}
-          variants={FADE_UP_ANIMATION_VARIANTS_4}
-          className="flex justify-center mt-6 relative"
-        >
+      <div className="mx-auto max-w-6xl px-4 text-[hsla(0,0%,9%,1)] dark:text-[hsla(0,0%,95%,1)] [perspective:2000px]">
+        <div className="flex justify-center mt-6 relative animate-imageRotate">
           <Image
             className="rounded-xl max-w-[calc(100vw-2rem)] w-full dark:hidden block"
             src="/snapshot-dark.png"
@@ -156,14 +115,16 @@ export default function Home() {
             width={2560}
             height={1362}
           />
-        </motion.div>
+        </div>
         <Divider />
-        <div className="flex flex-col items-center">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          className="flex flex-col items-center"
+        >
           <motion.h1
-            initial="hidden"
-            whileInView="show"
             viewport={{ once: true }}
-            variants={FADE_UP_ANIMATION_VARIANTS_3}
+            variants={getVariants()}
             className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
           >
             <span>Based on</span>
@@ -183,10 +144,8 @@ export default function Home() {
             />
           </motion.h1>
           <motion.p
-            initial="hidden"
-            whileInView="show"
             viewport={{ once: true }}
-            variants={FADE_UP_ANIMATION_VARIANTS_3}
+            variants={getVariants({ delay: 0.3 })}
             className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
           >
             <b>OpenAI</b> can provide the best user experience and the most{" "}
@@ -198,7 +157,7 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={MULTIDIRECTION_SLIDE_VARIANTS}
+              variants={getSlideVariants({ delay: 0.5 })}
               className={cn(
                 "flex flex-col justify-between border rounded-xl overflow-hidden p-6 lg:p-8 shadow-xl ring-1 relative group select-none",
                 "border-[#ebeaeb] dark:border-[#1e1e1e] text-[#666666] dark:text-[#a1a1a1]",
@@ -239,7 +198,7 @@ export default function Home() {
               initial="right"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={MULTIDIRECTION_SLIDE_VARIANTS}
+              variants={getSlideVariants({ delay: 0.7 })}
               className={cn(
                 "border rounded-xl overflow-hidden p-6 lg:p-8 shadow-xl ring-1 select-none relative group",
                 "border-[#ebeaeb] dark:border-[#1e1e1e] text-[#666666] dark:text-[#a1a1a1]",
@@ -282,7 +241,7 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={MULTIDIRECTION_SLIDE_VARIANTS}
+              variants={getSlideVariants({ delay: 0.9 })}
               className={cn(
                 "border rounded-xl overflow-hidden p-6 lg:p-8 shadow-xl ring-1 select-none relative group",
                 "border-[#ebeaeb] dark:border-[#1e1e1e] text-[#666666] dark:text-[#a1a1a1]",
@@ -318,7 +277,7 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
         <Divider />
         <Features />
         <Divider />

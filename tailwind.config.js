@@ -102,6 +102,12 @@ module.exports = {
           "0%, 50%, 100%": { opacity: 0 },
           "66.667%, 83.333%": { opacity: 1 },
         },
+        imageRotate: {
+          "0%": { transform: "rotateX(25deg)" },
+          "25%": { transform: "rotateX(25deg) scale(.9)" },
+          "60%": { transform: "none" },
+          "100%": { transform: "none" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -110,6 +116,7 @@ module.exports = {
         download1: "download1 8s infinite",
         download2: "download2 8s infinite",
         download3: "download3 8s infinite",
+        imageRotate: "imageRotate 2s ease forwards",
       },
     },
   },

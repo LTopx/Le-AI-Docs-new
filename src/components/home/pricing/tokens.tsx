@@ -1,12 +1,8 @@
 import React from "react";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const FADE_UP_ANIMATION_VARIANTS: Variants = {
-  hidden: { opacity: 0.001, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.2 } },
-};
+import { getVariants } from "@/lib/variants";
 
 export default function Tokens() {
   const [activeTab, setActiveTab] = React.useState(5);
@@ -30,10 +26,8 @@ export default function Tokens() {
 
   return (
     <motion.div
-      initial="hidden"
-      whileInView="show"
       viewport={{ once: true }}
-      variants={FADE_UP_ANIMATION_VARIANTS}
+      variants={getVariants({ delay: 0.5 })}
       className="border border-[#eaeaea] dark:border-[#333] bg-white dark:bg-black p-8 rounded-lg flex flex-col justify-between gap-20 lg:mt-8"
     >
       <div>
@@ -66,21 +60,21 @@ export default function Tokens() {
         </div>
         <div className="mt-8 text-[#666666] dark:text-[#a1a1a1] flex flex-col gap-4">
           <div className="flex items-center gap-2">
-            <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+            <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
             <span>
               Gifted <b>{formatter.format(findPrice.tokens * 10000)}</b> Le-AI
               API Tokens
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+            <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
             <span>
               Get an extra <b>{formatter.format(findPrice.gifted * 10000)}</b>{" "}
               Tokens for Premium
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+            <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
             <span>Never expires</span>
           </div>
         </div>

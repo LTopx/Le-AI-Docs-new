@@ -1,23 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  type Variants,
-} from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { getVariants } from "@/lib/variants";
 import { Button } from "@/components/ui/button";
-
-const FADE_UP_ANIMATION_VARIANTS: Variants = {
-  hidden: { opacity: 0.001, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.2 } },
-};
-
-const FADE_UP_ANIMATION_VARIANTS_3: Variants = {
-  hidden: { opacity: 0.001, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.2 } },
-};
 
 export default function ApiProxy() {
   const mouseX = useMotionValue(0);
@@ -54,21 +40,21 @@ export default function ApiProxy() {
   ];
 
   return (
-    <div className="flex flex-col items-center">
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      className="flex flex-col items-center"
+    >
       <motion.h1
-        initial="hidden"
-        whileInView="show"
         viewport={{ once: true }}
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={getVariants()}
         className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
       >
         API Proxy
       </motion.h1>
       <motion.p
-        initial="hidden"
-        whileInView="show"
         viewport={{ once: true }}
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={getVariants({ delay: 0.3 })}
         className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
       >
         Provide reliable <b>OpenAI API Proxy</b> services for users who are
@@ -77,10 +63,8 @@ export default function ApiProxy() {
       <div className="flex flex-col gap-4 lg:gap-8">
         {lists.map((item, index) => (
           <motion.div
-            initial="hidden"
-            whileInView="show"
             viewport={{ once: true }}
-            variants={FADE_UP_ANIMATION_VARIANTS_3}
+            variants={getVariants({ delay: 0.5 + index * 0.2 })}
             key={item.icon}
             className={cn(
               "border rounded-xl overflow-hidden p-6 lg:p-8 shadow-xl ring-1 relative group flex flex-col-reverse md:flex-row",
@@ -121,6 +105,6 @@ export default function ApiProxy() {
           </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

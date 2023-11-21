@@ -1,11 +1,7 @@
 import React from "react";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-
-const FADE_UP_ANIMATION_VARIANTS: Variants = {
-  hidden: { opacity: 0.001, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.2 } },
-};
+import { getVariants } from "@/lib/variants";
 
 export default function Features() {
   const list = [
@@ -52,21 +48,21 @@ export default function Features() {
   ];
 
   return (
-    <div className="flex flex-col items-center">
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      className="flex flex-col items-center"
+    >
       <motion.h1
-        initial="hidden"
-        whileInView="show"
         viewport={{ once: true }}
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={getVariants()}
         className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
       >
         Features
       </motion.h1>
       <motion.p
-        initial="hidden"
-        whileInView="show"
         viewport={{ once: true }}
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={getVariants({ delay: 0.3 })}
         className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
       >
         <b>Le-AI</b> helps you do more
@@ -74,10 +70,8 @@ export default function Features() {
       <motion.div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-y-16 w-full mt-8">
         {list.map((item, index) => (
           <motion.div
-            initial="hidden"
-            whileInView="show"
             viewport={{ once: true }}
-            variants={FADE_UP_ANIMATION_VARIANTS}
+            variants={getVariants({ delay: 0.5 + index * 0.1 })}
             key={index}
             className="flex gap-4"
           >
@@ -100,6 +94,6 @@ export default function Features() {
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

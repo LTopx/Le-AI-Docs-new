@@ -1,42 +1,36 @@
 import React from "react";
 import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { getVariants } from "@/lib/variants";
 import Tokens from "./tokens";
-
-const FADE_UP_ANIMATION_VARIANTS: Variants = {
-  hidden: { opacity: 0.001, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.2 } },
-};
 
 export default function Pricing() {
   return (
-    <div className="flex flex-col items-center">
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      className="flex flex-col items-center"
+    >
       <motion.h1
-        initial="hidden"
-        whileInView="show"
         viewport={{ once: true }}
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={getVariants()}
         className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
       >
         Pricing
       </motion.h1>
       <motion.p
-        initial="hidden"
-        whileInView="show"
         viewport={{ once: true }}
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={getVariants({ delay: 0.3 })}
         className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
       >
         <b>Unlock</b> features, Support future development
       </motion.p>
-      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 ">
         <motion.div
-          initial="hidden"
-          whileInView="show"
           viewport={{ once: true }}
-          variants={FADE_UP_ANIMATION_VARIANTS}
+          variants={getVariants({ delay: 0.5 })}
           className="border border-[#eaeaea] dark:border-[#333] bg-white dark:bg-black p-8 rounded-lg flex flex-col justify-between gap-20 lg:mt-8"
         >
           <div>
@@ -44,21 +38,21 @@ export default function Pricing() {
             <div className="text-4xl font-bold mt-4">$0</div>
             <div className="mt-8 text-[#666666] dark:text-[#a1a1a1] flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <span>
                   <b>Free</b> to use
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <span>Use your own API Key</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <span>Basic Chat Features</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <div>
                   <Link href="" className="underline">
                     Use Le-AI API
@@ -66,7 +60,7 @@ export default function Pricing() {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <span>
                   Register and get 20,000 Tokens for free, Access to{" "}
                   <b>GPT-3.5</b>
@@ -86,10 +80,8 @@ export default function Pricing() {
           </Button>
         </motion.div>
         <motion.div
-          initial="hidden"
-          whileInView="show"
           viewport={{ once: true }}
-          variants={FADE_UP_ANIMATION_VARIANTS}
+          variants={getVariants({ delay: 0.5 })}
           className="border border-[#eaeaea] dark:border-[#333] bg-white dark:bg-black p-8 rounded-lg flex flex-col justify-between gap-20"
         >
           <div>
@@ -102,30 +94,30 @@ export default function Pricing() {
             </div>
             <div className="mt-8 text-[#666666] dark:text-[#a1a1a1] flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <span>All Hobby Plan features</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <span>
                   Gifted <b>500,000</b> Le-AI API Tokens
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <span>
                   Purchase Tokens and receive an <b>additional 20%</b> as a
                   bonus
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <span>
                   <b>GPT-4</b> is available
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0" />
+                <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
                 <span>Lifetime license</span>
               </div>
             </div>
@@ -146,6 +138,6 @@ export default function Pricing() {
         </motion.div>
         <Tokens />
       </div>
-    </div>
+    </motion.div>
   );
 }
