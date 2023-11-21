@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { getVariants } from "@/lib/variants";
-import { Button } from "components/ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function ApiProxy() {
   const mouseX = useMotionValue(0);

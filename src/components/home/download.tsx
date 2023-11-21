@@ -2,7 +2,7 @@ import React from "react";
 import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { getVariants } from "@/lib/variants";
-import { Button } from "components/ui/button";
+import { Button } from "@/components/ui/button";
 
 type Item = {
   platform: string;

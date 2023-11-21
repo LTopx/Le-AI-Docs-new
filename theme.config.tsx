@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import { DocsThemeConfig } from "nextra-theme-docs";
-import Language from "components/language";
-import Footer from "components/footer";
+import Language from "@/components/language";
+import Footer from "@/components/footer";
 
 const logo = (
   <div className="flex h-14 text-2xl gap-2 items-center logo">
