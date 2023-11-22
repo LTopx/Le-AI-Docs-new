@@ -62,6 +62,9 @@ const config: DocsThemeConfig = {
       </>
     );
   },
+  nextThemes: {
+    defaultTheme: "dark",
+  },
   logo,
   project: {
     link: "https://github.com/LTopx/Le-AI",
