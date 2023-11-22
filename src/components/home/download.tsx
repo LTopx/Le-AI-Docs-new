@@ -1,20 +1,17 @@
 import React from "react";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { getVariants } from "@/lib/variants";
 import { Button } from "@/components/ui/button";
+import useLocale from "@/hooks/useLocale";
 
 type Item = {
   platform: string;
   icon: string;
 };
 
-const FADE_UP_ANIMATION_VARIANTS: Variants = {
-  hidden: { opacity: 0.001, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0.2 } },
-};
-
 export default function Download() {
+  const tHome = useLocale("home");
   const [isHover, setIsHover] = React.useState(false);
 
   const lists: Item[] = [
@@ -116,7 +113,7 @@ export default function Download() {
             variant="outline"
           >
             <span className="w-6 h-6 i-mingcute-appstore-fill" />
-            Intel Chip
+            {tHome("intelChip")}
           </Button>
           <Button
             className={cn(
@@ -127,7 +124,7 @@ export default function Download() {
             variant="outline"
           >
             <span className="w-6 h-6 i-mingcute-appstore-fill" />
-            Apple Chip
+            {tHome("appleChip")}
           </Button>
         </div>
       </div>

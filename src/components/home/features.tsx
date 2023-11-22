@@ -2,48 +2,52 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { getVariants } from "@/lib/variants";
+import useLocale from "@/hooks/useLocale";
 
 export default function Features() {
+  const tHome = useLocale("home");
+  const tFeatures = useLocale("features");
+
   const list = [
     {
       icon: "i-mdi-account-off-outline",
-      title: "No Login Required",
-      content: "No need to log in, can be used directly",
+      title: tFeatures("noLoginRequired"),
+      content: tFeatures("noLoginRequiredTips"),
     },
     {
       icon: "i-mdi-coffee-outline",
-      title: "Free",
-      content: "Provide your OpenAI API Key and you can use it for free",
+      title: tFeatures("free"),
+      content: tFeatures("freeTips"),
     },
     {
       icon: "i-mingcute-safety-certificate-line",
-      title: "Data Security",
-      content: "All data is stored on your device and will be no leakage",
+      title: tFeatures("dataSecurity"),
+      content: tFeatures("dataSecurityTips"),
     },
     {
       icon: "i-mingcute-transfer-line",
-      title: "Transfer API Service",
-      content: "Provide transit API services for convenient use",
+      title: tFeatures("apiProxy"),
+      content: tFeatures("apiProxyTips"),
     },
     {
       icon: "i-mingcute-chat-2-line",
-      title: "Chat Everywhere",
-      content: "Includes multi-platform clients can be used in most scenarios",
+      title: tFeatures("chatEverywhere"),
+      content: tFeatures("chatEverywhereTips"),
     },
     {
       icon: "i-mdi-language-markdown-outline",
-      title: "Perfect formatting",
-      content: "Provides good support for markdown format",
+      title: tFeatures("format"),
+      content: tFeatures("formatTips"),
     },
     {
       icon: "i-mdi-update",
-      title: "Continuous updates",
-      content: "Will continue to iterate and constantly add new features",
+      title: tFeatures("continuousUpdates"),
+      content: tFeatures("continuousUpdatesTips"),
     },
     {
       icon: "i-mdi-comment-quote-outline",
-      title: "Quick response",
-      content: "Respond to feedback in the first instance",
+      title: tFeatures("quickResponse"),
+      content: tFeatures("quickResponseTips"),
     },
   ];
 
@@ -58,14 +62,14 @@ export default function Features() {
         variants={getVariants()}
         className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
       >
-        Features
+        {tHome("features")}
       </motion.h1>
       <motion.p
         viewport={{ once: true }}
         variants={getVariants({ delay: 0.3 })}
         className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
       >
-        <b>Le-AI</b> helps you do more
+        <b>Le-AI</b> {tHome("helpYou")}
       </motion.p>
       <motion.div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-y-16 w-full mt-8">
         {list.map((item, index) => (

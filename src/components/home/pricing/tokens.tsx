@@ -1,10 +1,16 @@
 import React from "react";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { getVariants } from "@/lib/variants";
+import useLocale from "@/hooks/useLocale";
 
 export default function Tokens() {
+  const router = useRouter();
+  const locale = router.locale;
+  const tPricing = useLocale("pricing");
+
   const [activeTab, setActiveTab] = React.useState(5);
 
   const prices = [
@@ -61,21 +67,33 @@ export default function Tokens() {
         <div className="mt-8 text-[#666666] dark:text-[#a1a1a1] flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
-            <span>
-              Gifted <b>{formatter.format(findPrice.tokens * 10000)}</b> Le-AI
-              API Tokens
-            </span>
+            {locale === "zh" ? (
+              <span>
+                包含 <b>{findPrice.tokens}W</b> Le-AI API Tokens
+              </span>
+            ) : (
+              <span>
+                Gifted <b>{formatter.format(findPrice.tokens * 10000)}</b> Le-AI
+                API Tokens
+              </span>
+            )}
           </div>
           <div className="flex items-center gap-2">
             <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
-            <span>
-              Get an extra <b>{formatter.format(findPrice.gifted * 10000)}</b>{" "}
-              Tokens for Premium
-            </span>
+            {locale === "zh" ? (
+              <span>
+                高级版会员额外 <b>赠送{findPrice.gifted}W</b> Le-AI API Tokens
+              </span>
+            ) : (
+              <span>
+                Get an <b> extra{formatter.format(findPrice.gifted * 10000)}</b>{" "}
+                Tokens for Premium
+              </span>
+            )}
           </div>
           <div className="flex items-center gap-2">
             <span className="i-mingcute-check-circle-fill w-5 h-5 flex-shrink-0 text-green-500" />
-            <span>Never expires</span>
+            <span>{tPricing("neverExpires")}</span>
           </div>
         </div>
       </div>

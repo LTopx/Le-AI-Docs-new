@@ -2,8 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import useLocale from "@/hooks/useLocale";
 
 export default function Footer() {
+  const tHome = useLocale("home");
+
   const [status, setStatus] = React.useState({
     indicator: "",
     description: "",
@@ -62,39 +65,39 @@ export default function Footer() {
           </div>
           <div>
             <div className="text-[#171717] dark:text-[#ededed] font-medium">
-              Resources
+              {tHome("resources")}
             </div>
             <div className="flex flex-col mt-4 gap-2">
               <Link
                 href="/"
                 className="text-[#666666] hover:text-black transition-colors w-32"
               >
-                Docs
+                {tHome("docs")}
               </Link>
               <Link
                 href="/"
                 className="text-[#666666] hover:text-black transition-colors w-32"
               >
-                Download
+                {tHome("downloadList")}
               </Link>
             </div>
           </div>
           <div>
             <div className="text-[#171717] dark:text-[#ededed] font-medium">
-              Legal
+              {tHome("legal")}
             </div>
             <div className="flex flex-col mt-4 gap-2">
               <Link
                 href="/"
                 className="text-[#666666] hover:text-black transition-colors w-32"
               >
-                Privacy Policy
+                {tHome("privacyPolicy")}
               </Link>
               <Link
                 href="/"
                 className="text-[#666666] hover:text-black transition-colors w-32"
               >
-                Terms of Service
+                {tHome("termsOfService")}
               </Link>
             </div>
           </div>
@@ -135,39 +138,39 @@ export default function Footer() {
           </div>
           <div className="flex justify-between mt-2">
             <div className="text-[#171717] dark:text-[#ededed] font-medium">
-              Resources
+              {tHome("resources")}
             </div>
             <div className="flex gap-4">
               <Link
                 href="/"
                 className="text-[#666666] hover:text-black transition-colors"
               >
-                Docs
+                {tHome("docs")}
               </Link>
               <Link
                 href="/"
                 className="text-[#666666] hover:text-black transition-colors"
               >
-                Download
+                {tHome("downloadList")}
               </Link>
             </div>
           </div>
           <div className="flex justify-between">
             <div className="text-[#171717] dark:text-[#ededed] font-medium">
-              Legal
+              {tHome("legal")}
             </div>
             <div className="flex gap-4">
               <Link
                 href="/"
                 className="text-[#666666] hover:text-black transition-colors"
               >
-                Privacy Policy
+                {tHome("privacyPolicy")}
               </Link>
               <Link
                 href="/"
                 className="text-[#666666] hover:text-black transition-colors"
               >
-                Terms of Service
+                {tHome("termsOfService")}
               </Link>
             </div>
           </div>

@@ -1,9 +1,11 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { getVariants, getSlideVariants } from "@/lib/variants";
+import useLocale from "@/hooks/useLocale";
 import Download from "./download";
 import Features from "./features";
 import ApiProxy from "./apiProxy";
@@ -13,6 +15,10 @@ import Divider from "../divider";
 import Pkg from "../../../package.json";
 
 export default function Home() {
+  const router = useRouter();
+  const locale = router.locale;
+  const tHome = useLocale("home");
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const handleMouseMove = React.useCallback(
@@ -38,7 +44,7 @@ export default function Home() {
             variants={getVariants()}
             className="font-extrabold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center"
           >
-            AI Assitant Hub
+            {tHome("assistantHub")}
           </motion.h1>
           <motion.h1
             initial="hidden"
@@ -47,7 +53,7 @@ export default function Home() {
             variants={getVariants()}
             className="font-extrabold tracking-tight scroll-m-20 text-4xl lg:text-5xl text-center mt-4 flex gap-3"
           >
-            <div>With</div>
+            {!!tHome("with") && <div>{tHome("with")}</div>}
             <div className="cursor-pointer flex font-extrabold text-transparent items-center select-none">
               <span className="bg-clip-text bg-logo bg-[size:400%] animate-flow">
                 Le-AI
@@ -59,12 +65,13 @@ export default function Home() {
             animate="show"
             viewport={{ once: true }}
             variants={getVariants({ delay: 0.3 })}
-            className="mt-8 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
+            className="mt-8 px-4 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
           >
-            Le-AI is an open-source LLM conversation assistant designed to help
-            you improve learning, work, and life efficiency.
+            {tHome("desc")}
             <br />
-            It supports <b>Web</b>, <b>Mac</b>, <b>Windows</b> and <b>Linux</b>
+            {tHome("supports")}
+            <b>Web</b>, <b>Mac</b>, <b>Windows</b> {tHome("and")} <b>Linux</b>
+            {tHome("platform")}
           </motion.p>
         </div>
         <motion.div
@@ -81,7 +88,7 @@ export default function Home() {
               "dark:bg-[rgb(237,237,237)] dark:hover:bg-[rgb(204,204,204)] dark:text-[rgb(10,10,10)]"
             )}
           >
-            Get Started
+            {tHome("getStarted")}
             <span className="i-mdi-web w-5 h-5 lg:w-6 lg:h-6" />
           </Button>
           <Button
@@ -92,7 +99,7 @@ export default function Home() {
             )}
             variant="outline"
           >
-            Download <b>v{Pkg.version}</b>
+            {tHome("download")} <b>v{Pkg.version}</b>
             <span className="i-mdi-download w-5 h-5 lg:w-6 lg:h-6 group-hover:animate-bounce" />
           </Button>
         </motion.div>
@@ -127,7 +134,7 @@ export default function Home() {
             variants={getVariants()}
             className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
           >
-            <span>Based on</span>
+            <span>{tHome("basedOn")}</span>
             <Image
               className="mt-1 lg:mt-3 dark:hidden"
               src="/openai.svg"
@@ -143,15 +150,27 @@ export default function Home() {
               height={32}
             />
           </motion.h1>
-          <motion.p
-            viewport={{ once: true }}
-            variants={getVariants({ delay: 0.3 })}
-            className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
-          >
-            <b>OpenAI</b> can provide the best user experience and the most{" "}
-            <b>feature-rich</b> API. Currently, all of our products are built on
-            OpenAI.
-          </motion.p>
+          {locale === "zh" ? (
+            <motion.p
+              viewport={{ once: true }}
+              variants={getVariants({ delay: 0.3 })}
+              className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
+            >
+              <b>OpenAI </b>
+              能够提供最佳的用户体验和功能<b>最丰富</b>
+              的API。目前，我们所有的产品都是基于OpenAI构建的。
+            </motion.p>
+          ) : (
+            <motion.p
+              viewport={{ once: true }}
+              variants={getVariants({ delay: 0.3 })}
+              className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
+            >
+              <b>OpenAI</b> can provide the best user experience and the most{" "}
+              <b>feature-rich</b> API. Currently, all of our products are built
+              on OpenAI.
+            </motion.p>
+          )}
           <div className="w-full grid lg:grid-cols-2 gap-4 lg:gap-8">
             <motion.div
               initial="hidden"
@@ -172,10 +191,7 @@ export default function Home() {
               />
               <div>
                 <div className="font-bold text-2xl">GPT-3.5/4</div>
-                <div className="mt-2.5">
-                  Supports the latest GPT-3.5 and GPT-4 models simultaneously,
-                  and responds quickly to help you solve most problems.
-                </div>
+                <div className="mt-2.5">{tHome("gptModelTips")}</div>
               </div>
               <div className="mt-8 opacity-90">
                 <Image
@@ -213,13 +229,9 @@ export default function Home() {
               />
               <div className="text-2xl">
                 <span className="font-bold">DALL-E-3</span>/
-                <span>GPT-4V(Coming soon)</span>
+                <span>GPT-4V({tHome("comingSoon")})</span>
               </div>
-              <div className="mt-2.5">
-                Supports DALL-E-3, allowing you to easily transform your ideas
-                into extremely accurate images. Subsequent support for
-                GPT-4-Vision will also be provided.
-              </div>
+              <div className="mt-2.5">{tHome("dallTips")}</div>
               <div className="mt-8 opacity-90">
                 <Image
                   className="rounded-lg dark:hidden pointer-events-none"
@@ -254,11 +266,8 @@ export default function Home() {
                 style={{ background }}
                 aria-hidden="true"
               />
-              <div className="font-bold text-2xl">Text to speech</div>
-              <div className="mt-2.5">
-                Text-to-speech, 6 different emotionally rich tones to help you
-                find the tone you need
-              </div>
+              <div className="font-bold text-2xl">{tHome("tts")}</div>
+              <div className="mt-2.5">{tHome("ttsTips")}</div>
               <div className="mt-8 opacity-90">
                 <Image
                   className="rounded-lg dark:hidden pointer-events-none"
