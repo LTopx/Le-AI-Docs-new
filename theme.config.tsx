@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { DocsThemeConfig } from "nextra-theme-docs";
+import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import Language from "@/components/language";
 import Footer from "@/components/footer";
 
@@ -38,6 +38,30 @@ const logo = (
 );
 
 const config: DocsThemeConfig = {
+  head: function useHead() {
+    const { title } = useConfig();
+
+    return (
+      <>
+        <meta
+          name="viewport"
+          content="height=device-height ,width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+        />
+        <meta
+          name="og:title"
+          content={title ? title + " – Le-AI Docs" : "Le-AI Docs"}
+        />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+        {!!process.env.UMAMI_WEBSITE_ID && (
+          <script
+            async
+            src="https://umami.ltopx.com/script.js"
+            data-website-id={process.env.UMAMI_WEBSITE_ID}
+          ></script>
+        )}
+      </>
+    );
+  },
   logo,
   project: {
     link: "https://github.com/LTopx/Le-AI",
