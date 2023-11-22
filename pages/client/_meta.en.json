@@ -1,3 +1,8 @@
 {
-  "introduction": "Introduction"
+  "introduction": "Introduction",
+  "features": "Features",
+  "faq": "FAQ",
+  "develop": "Develop",
+  "changeLog": "Change Log",
+  "about": "About"
 }
