@@ -16,12 +16,12 @@ export default function Pricing() {
 
   return (
     <motion.div
+      viewport={{ once: true }}
       initial="hidden"
       whileInView="show"
       className="flex flex-col items-center"
     >
       <motion.h1
-        viewport={{ once: true }}
         variants={getVariants()}
         className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
       >
@@ -29,7 +29,6 @@ export default function Pricing() {
       </motion.h1>
       {locale === "zh" ? (
         <motion.p
-          viewport={{ once: true }}
           variants={getVariants({ delay: 0.3 })}
           className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
         >
@@ -37,7 +36,6 @@ export default function Pricing() {
         </motion.p>
       ) : (
         <motion.p
-          viewport={{ once: true }}
           variants={getVariants({ delay: 0.3 })}
           className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
         >
@@ -47,7 +45,6 @@ export default function Pricing() {
 
       <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 ">
         <motion.div
-          viewport={{ once: true }}
           variants={getVariants({ delay: 0.5 })}
           className="border border-[#eaeaea] dark:border-[#333] bg-white dark:bg-black p-8 rounded-lg flex flex-col justify-between gap-20 lg:mt-8"
         >
@@ -110,7 +107,6 @@ export default function Pricing() {
           </Button>
         </motion.div>
         <motion.div
-          viewport={{ once: true }}
           variants={getVariants({ delay: 0.5 })}
           className="border border-[#eaeaea] dark:border-[#333] bg-white dark:bg-black p-8 rounded-lg flex flex-col justify-between gap-20"
         >

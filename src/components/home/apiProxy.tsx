@@ -46,12 +46,12 @@ export default function ApiProxy() {
 
   return (
     <motion.div
+      viewport={{ once: true }}
       initial="hidden"
       whileInView="show"
       className="flex flex-col items-center"
     >
       <motion.h1
-        viewport={{ once: true }}
         variants={getVariants()}
         className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
       >
@@ -59,7 +59,6 @@ export default function ApiProxy() {
       </motion.h1>
       {locale === "zh" ? (
         <motion.p
-          viewport={{ once: true }}
           variants={getVariants({ delay: 0.3 })}
           className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
         >
@@ -68,7 +67,6 @@ export default function ApiProxy() {
         </motion.p>
       ) : (
         <motion.p
-          viewport={{ once: true }}
           variants={getVariants({ delay: 0.3 })}
           className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
         >
@@ -80,7 +78,6 @@ export default function ApiProxy() {
       <div className="flex flex-col gap-4 lg:gap-8">
         {lists.map((item, index) => (
           <motion.div
-            viewport={{ once: true }}
             variants={getVariants({ delay: 0.5 + index * 0.2 })}
             key={item.icon}
             className={cn(

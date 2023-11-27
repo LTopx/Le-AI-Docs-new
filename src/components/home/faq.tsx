@@ -18,12 +18,12 @@ export default function FAQ() {
 
   return (
     <motion.div
+      viewport={{ once: true }}
       initial="hidden"
       whileInView="show"
       className="flex flex-col items-center pb-8 lg:pb-16"
     >
       <motion.h1
-        viewport={{ once: true }}
         variants={getVariants()}
         className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
       >
@@ -31,7 +31,6 @@ export default function FAQ() {
       </motion.h1>
 
       <motion.p
-        viewport={{ once: true }}
         variants={getVariants({ delay: 0.3 })}
         className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
       >
@@ -46,7 +45,6 @@ export default function FAQ() {
         )}
       </motion.p>
       <motion.div
-        viewport={{ once: true }}
         variants={getVariants({ delay: 0.5 })}
         className="w-[570px] max-w-[calc(100vw-2rem)]"
       >

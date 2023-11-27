@@ -127,10 +127,10 @@ export default function Home() {
         <motion.div
           initial="hidden"
           whileInView="show"
+          viewport={{ once: true }}
           className="flex flex-col items-center"
         >
           <motion.h1
-            viewport={{ once: true }}
             variants={getVariants()}
             className="flex items-center font-bold tracking-tight scroll-m-20 text-5xl lg:text-6xl text-center gap-6"
           >
@@ -152,7 +152,6 @@ export default function Home() {
           </motion.h1>
           {locale === "zh" ? (
             <motion.p
-              viewport={{ once: true }}
               variants={getVariants({ delay: 0.3 })}
               className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
             >
@@ -162,7 +161,6 @@ export default function Home() {
             </motion.p>
           ) : (
             <motion.p
-              viewport={{ once: true }}
               variants={getVariants({ delay: 0.3 })}
               className="my-7 text-lg lg:text-xl leading-7 text-[hsla(0,0%,40%,1)] dark:text-[hsla(0,0%,92%,1)] max-w-2xl text-center"
             >
