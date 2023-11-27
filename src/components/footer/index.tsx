@@ -69,7 +69,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col mt-4 gap-2">
               <Link
-                href="/"
+                href="/client/introduction"
                 className="text-[#666666] hover:text-black transition-colors w-32"
               >
                 {tHome("docs")}
