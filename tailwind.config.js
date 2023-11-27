@@ -123,7 +123,12 @@ module.exports = {
   plugins: [
     require("tailwindcss-animate"),
     iconsPlugin({
-      collections: getIconCollections(["mdi", "mingcute", "simple-icons"]),
+      collections: getIconCollections([
+        "mdi",
+        "mingcute",
+        "simple-icons",
+        "ri",
+      ]),
     }),
   ],
 };

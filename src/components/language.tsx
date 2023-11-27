@@ -27,13 +27,7 @@ export default function Language() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          style={{
-            boxShadow: "none",
-          }}
-        >
+        <Button variant="ghost" size="icon" style={{ boxShadow: "none" }}>
           <span className="i-mingcute-translate-line w-6 h-6" />
         </Button>
       </DropdownMenuTrigger>

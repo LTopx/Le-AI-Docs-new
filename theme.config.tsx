@@ -1,8 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import Language from "@/components/language";
 import Footer from "@/components/footer";
+import { Button } from "@/components/ui/button";
 
 const logo = (
   <div className="flex h-14 text-2xl gap-2 items-center logo">
@@ -62,26 +65,55 @@ const config: DocsThemeConfig = {
       </>
     );
   },
+  useNextSeoProps() {
+    const { asPath } = useRouter();
+
+    if (asPath === "/") return { titleTemplate: "Le-AI" };
+
+    return { titleTemplate: "%s – Le-AI Docs" };
+  },
+  docsRepositoryBase: "https://github.com/LTopx/Le-AI",
   nextThemes: {
     defaultTheme: "dark",
   },
   logo,
-  project: {
-    link: "https://github.com/LTopx/Le-AI",
-  },
-  chat: {
-    link: "https://discord.com",
-  },
-  // useNextSeoProps() {
-  //   const { asPath } = useRouter();
-  //   if (asPath !== "/") {
-  //     return {
-  //       titleTemplate: "%s – LX-UI",
-  //     };
-  //   }
-  // },
   navbar: {
-    extraContent: Language,
+    extraContent: (
+      <div>
+        <Link href="https://github.com/LTopx/Le-AI" target="_blank">
+          <Button variant="ghost" size="icon" style={{ boxShadow: "none" }}>
+            <span className="i-mdi-github w-6 h-6" />
+          </Button>
+        </Link>
+        <Link href="https://twitter.com/peekbomb" target="_blank">
+          <Button variant="ghost" size="icon" style={{ boxShadow: "none" }}>
+            <span className="i-ri-twitter-x-fill w-[22px] h-[22px]" />
+          </Button>
+        </Link>
+        <Language />
+      </div>
+    ),
+  },
+  banner: {
+    key: "0.1.0-Published",
+    text: (
+      <a href="https://le-ai.app" target="_blank">
+        🎉 Le-AI v0.1.0 Published. Get to know →
+      </a>
+    ),
+  },
+  search: {
+    placeholder: () => {
+      const router = useRouter();
+      if (router.locale === "zh") return "搜索文档...";
+      return "Search documentation…";
+    },
+  },
+  editLink: {
+    text: null,
+  },
+  feedback: {
+    content: null,
   },
   footer: {
     component: <Footer />,
