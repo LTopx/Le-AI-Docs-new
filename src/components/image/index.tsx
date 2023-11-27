@@ -12,7 +12,12 @@ export default function Image(props: ImageProps) {
         </div>
       </DialogTrigger>
       <DialogContent className="max-w-[calc(100vw-2rem)] w-fit">
-        <div className={cn("max-w-[calc(100vw-5rem)]", props.className)}>
+        <div
+          className={cn(
+            "max-w-[calc(100vw-5rem)] max-h-[calc(100vh-5rem)] overflow-y-auto rounded-lg",
+            props.className
+          )}
+        >
           <NextImage {...props} />
         </div>
       </DialogContent>
